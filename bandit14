@@ -17,5 +17,4 @@ Command:
 ssh -i ssh.private_key bandit14@bandit.labs.overthwire.org -p 2220
 
 
-
 Password: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
