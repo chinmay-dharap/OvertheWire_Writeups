@@ -1,0 +1,25 @@
+Bandit Level 15 → Level 16
+Level Goal
+
+The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL/TLS encryption.
+
+Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage.
+
+
+Solution: 
+---------
+
+So this level teaches you to connect to a port securely using ssl protocol. 
+
+The openssl s_client command is a powerful diagnostic tool used to establish and analyze SSL/TLS connections to a remote server. It provides detailed information about the secure connection, including the server's certificate, the cipher suite used, and the success or failure of the SSL handshake.
+
+Basic Usage:
+The most common way to use openssl s_client to connect to a server is with the -connect flag, specifying the hostname or IP address and the port:
+
+Command: 
+
+openssl s_client -connect 127.0.0.1:30001
+
+
+
+Passoword: kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
