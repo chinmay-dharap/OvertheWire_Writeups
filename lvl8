@@ -1,0 +1,19 @@
+Using the passwd found in bandit7 access the bandit8, once accessed: 
+
+- The password for the next level is stored in the file data.txt and is the only line of text that
+occurs only once
+
+Solution: 
+---------
+
+In this level, there is a data.txt file which has alot of lines of text. Maybe alot of duplicates
+too. The level goal tells us that there is one line which is unique and has not been repeated and
+the password is in that line. So we will be using two commands: sort and uniq to sort the file
+alphabetically first and then find out the unique lines.
+
+Command: 
+
+sort data.txt | uniq -u 
+
+
+Passoword: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM

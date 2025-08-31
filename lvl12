@@ -1,0 +1,93 @@
+- 
+
+Solution: 
+---------
+
+
+Commands: 
+
+
+bandit12@bandit:/tmp/tmp.cgScJXfNYg$ history
+    1  ls
+    2  cd /tmp/
+    3  mktemp -d
+    4  cd /tmp/tmp.cgScJXfNYg
+    5  cp ~/data.txt 
+    6  cp ~/data.txt .
+    7  ls
+    8  xxd -r data.txt hexdump_data
+    9  cat hexdump_data 
+   10  mv hexdump_data compressed_data.bz
+   11  bzip2 compressed_data.bz 
+   12  bzip2 -d compressed_data.bz 
+   13  mv hexdump_data compressed_data.bz2
+   14  mv compressed_data.bz compressed_data.bz2
+   15  bzip2 -d compressed_data.bz2 
+   16  ls
+   17  rm compressed_data.bz2 
+   18  cat data.txt 
+   19  mv data.txt hexdump_data
+   20  ls
+   21  cat hexdump_data 
+   22  xxd -r hexdump_data 
+   23  ls
+   24  cat hexdump_data 
+   25  xxd -r hexdump_data compressed_data
+   26  ls
+   27  mv compressed_data compressed_data.bz2
+   28  bzip2 -d compressed_data.bz2 
+   29  mv compressed_data compressed_data.gz
+   30  ls
+   31  mv compressed_data.bz2 compressed_data.gz
+   32  ls
+   33  gzip -d compressed_data.gz 
+   34  ls
+   35  cat compressed_data 
+   36  mv compressed_data compressed_data.bz2
+   37  bzip2 -d compressed_data.bz2 
+   38  ls
+   39  cat compressed_data 
+   40  xxd compressed_data 
+   41  cat compressed_data 
+   42  xxd compressed_data 
+   43  mv compressed_data compressed_data.gz
+   44  ls
+   45  gzip -d compressed_data.gz
+   46  ls
+   47  cat compressed_data 
+   48  xxd compressed_data 
+   49  xxd compressed_data | head
+   50  ls
+   51  mv compressed_data compressed_data.tar
+   52  tar -xf compressed_data.tar
+   53  ;ls
+   54  ls
+   55  cat data5.bin |head 
+   56  cat data5.bin | head 
+   57  ls 
+   58  ls
+   59  ls -la
+   60  tar -xf data5.bin
+   61  ls
+   62  cat data6.bin | head
+   63  xxd data6.bin 
+   64  bzip2 -d data6,bin
+   65  bzip2 -d data6.bin
+   66  ls
+   67  cat data6.bin.out 
+   68  xxd data6.bin.out 
+   69  xxd data6.bin.out  | head
+   70  xxd data6.bin.out
+   71  ls
+   72  cat data6.bin.out | head
+   73  tar -xf data6.bin.out
+   74  ls
+   75  xxd data8.bin 
+   76  mv data8.bin data8.gz
+   77  gzip -d data8.gz 
+   78  ls
+   79  cat data8 
+   80  history
+
+
+Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn

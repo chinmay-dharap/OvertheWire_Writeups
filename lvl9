@@ -1,0 +1,16 @@
+Using passwd from bandit8 access bandit9
+
+- The password for the next level is stored in the file data.txt in one of the few human-readable
+strings, preceded by several ‘=’ characters.
+
+Solution: 
+---------
+
+In this level, there is again a data.txt but a data file not readable directly. So in order to read
+the few human-readable strings which are present in this data file, we will use strings command.
+
+Command: 
+
+strings data.txt 
+
+Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey

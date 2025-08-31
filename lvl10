@@ -1,0 +1,15 @@
+Using passwd from previous bandit9 access bandit10:
+
+-The password for the next level is stored in the file data.txt, which contains base64 encoded data
+
+Solution: 
+---------
+
+The file data.txt contains base64 encoded data. Decode it using base64 command
+
+Command: 
+
+base64 -d data.txt
+
+
+Passoword: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

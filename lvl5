@@ -1,0 +1,29 @@
+Using passwd found in previous bandit4 access bandit5, and Once you access Bandit5: 
+
+- The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+    human-readable
+    1033 bytes in size
+    not executable
+
+Solution: 
+---------
+
+The directory inhere has more than 15 folders. It is time consuming to check all the folders for
+these conditions above. Rather just smartly use ls command correctly to show all the files at once.
+
+Once you see all the hidden files and file sizes, just by looking at it you can see a single file
+from all those folder which is of size 1033 bytes. Now other two conditions has to be true about
+this file because there is no other file with the same file size. 
+
+So that's our file!
+
+Commands: 
+
+1. ls -la (this will give you a list of details)
+2. cd maybehere07/
+3. ls -la (this will show you the hidden file named .file2)
+4. cat -- .file2 (to show the contents of the file)
+
+
+Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

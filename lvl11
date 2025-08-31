@@ -1,0 +1,21 @@
+Using passwd from bandit10 access bandit11: 
+
+- The password for the next level is stored in the file data.txt, where all lowercase (a-z) and
+uppercase (A-Z) letters have been rotated by 13 positions
+
+Solution: 
+---------
+
+This is basically Rot13 Algorithm for encoding decoding text. In this algorithm the basic Alphabets
+are replaced by their shift 13 value. This can either be done by using a rot13 tool or just using
+tr command to replace characters. 
+
+Command: 
+
+cat data.txt | tr '[a-zA-Z]' '[n-za-mN-ZA-M]'
+
+- This command will basically replace the 13th shift value for the original alphabet. for. e.g
+A -> N or a -> n
+
+
+Password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4

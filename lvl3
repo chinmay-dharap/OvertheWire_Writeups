@@ -1,0 +1,18 @@
+Use the passwd from bandit2 to access bandit3. 
+
+- The password for the next level is stored in a hidden file in the inhere directory.
+
+Solution: 
+---------
+
+There is a directoy named inhere. And there is a hidden file in it which has the password for 
+next level
+
+Command: ls -la
+
+you will find a file named ...Hiding-From-You
+
+
+Password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+

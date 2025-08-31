@@ -1,0 +1,14 @@
+Use the passoword found in bandit1 to access bandit 2
+
+- The password for the next level is stored in a file called --spaces in this filename-- 
+located in the home directory
+
+Solution: 
+---------
+
+Use the same method used in the previous level
+
+Command: cat < --spaces\ in\ this\ filename--
+
+
+Password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx

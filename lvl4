@@ -1,0 +1,47 @@
+Use the passwd in the bandit3 to access bandit 4. Once you access bandit 4:
+
+- The password for the next level is stored in the only human-readable file in the inhere directory. 
+Tip: if your terminal is messed up, try the “reset” command.
+
+Solution: 
+---------
+
+- There are 10 files stored in the inhere directory. Hint given suggest to find out which file is
+in human readable format. So use file command to find out filetype. 
+
+- Now all the file names start with a dash (-) for e.g -file00. Normally if we cat the file name
+the shell will think the first - is used to give a argument. So use -- before file name. 
+
+When -- character seen, shell thinks that optional arguments for command itself finished and 
+doesn’t make option parsing anymore.
+
+So final command: 
+
+1. file -- * (to find out which file is human readable)
+
+output: 
+
+bandit4@bandit:~/inhere$ file -- *   
+-file00: Non-ISO extended-ASCII text, with no line terminators, with overstriking
+-file01: data
+-file02: data
+-file03: data
+-file04: data
+-file05: data
+-file06: data
+-file07: ASCII text
+-file08: data
+-file09: data
+
+------------------------------------------------------
+
+2. cat -- -file07
+
+output: 
+
+bandit4@bandit:~/inhere$ cat -- -file07
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+------------------------------------------------------
+
+Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

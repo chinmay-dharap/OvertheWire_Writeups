@@ -1,0 +1,19 @@
+Use the Password found in Bandit0 to access Level1 i.e ssh into bandit1
+
+- Passoword to access level 2 is store in a file called - located in the home directory 
+
+Solution: 
+---------
+
+File name is -
+It is actually a standard output so you can't read it directly. 
+
+Use this command : cat < -
+
+This is usually interpreted as "read from the standard input (stdin)". 
+
+< : This is an input redirection operator in the shell.
+It tells the shell to take input from a file (or sometimes from another source) 
+instead of the standard input (which would usually be typed directly into the terminal).
+
+Password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
