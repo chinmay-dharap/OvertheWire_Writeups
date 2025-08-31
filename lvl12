@@ -1,8 +1,45 @@
-- 
+Bandit Level 12 → Level 13
+Level Goal
+
+The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. 
+For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. 
+Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
 Solution: 
 ---------
 
+This level is not really difficult as such but rather a little time consuming. As given in the problem statement we have the hexdump data of a repeatedly
+compressed file. So we will need to analyse the data to find out which type of compression it is so that we can decompress it. 
+
+- To do that, first rename the data.txt to hexdump_data and then reverse the hexdump data so that we can find out the compressed data.
+For that use xxd command with -r argument. 
+
+- Once we get the compressed data, We now need to decompress the data. To figure out what decompression we need to use,
+look at the first bytes in the hexdump to find the file signature. We can search for these first bytes in a list of file signatures: 
+
+    > For gzip compressed files the header is \x1F\x8B\x08. Looking at the first line, we see that these are the first bytes of the file.
+    > Quick googling tells us that BZ (= ‘425a’) is the file signature for bzip and the next two bytes h (= ‘68’) indicate the version, in this case, it is version 2.
+        So we can rename the file with the appropriate file ending (.bz2) and decompress it with bzip2 -d
+    > If we see something like ‘data5.bin’ string, which is a filename, then its for TAR. 
+
+- Using the above indicators, we now will try to figure out which type of compressions has been used. If we cat hexdump_data we see the magic number for GZIP, 
+i.e \x1F\x8B\x08. So we will rename the compressed_data to compressed_data.gz and decompress it with gzip command and -d argument. 
+
+- Then after checking the decompressed output compressed_data, we can see the magic number for BZIP2 i.e BZH, so we will rename the compressed_data to compressed_data.bz2
+and decompress it with the command bzip2. 
+
+- And the file is still compressed. xxd shows that it is ‘gzip’ compressed again. So we repeat the previous steps, renaming and decompressing.
+
+- Now the output still doesn’t look right, but we can see some string. But when we cat the output we see the file name data5.bin which is a string.
+This is an indication of Tar archived file. So we will rename it from compressed_data to compressed_data.tar and will use tar -xf command to decompress. 
+
+- Now, ‘data5.bin’ seems to be another archive with a file called ‘data6.bin’. So we extract the file again.
+
+- The file ‘data6.bin’ seems to be bzip2 compressed again.
+
+- (Tar) ‘data6.bin.out’ shows another file name ‘data8.bin’ again. So we extract this file.
+
+- Finally, we have to do one more decompression with gzip and we get a readable file with the password.
 
 Commands: 
 
@@ -12,82 +49,34 @@ bandit12@bandit:/tmp/tmp.cgScJXfNYg$ history
     2  cd /tmp/
     3  mktemp -d
     4  cd /tmp/tmp.cgScJXfNYg
-    5  cp ~/data.txt 
     6  cp ~/data.txt .
-    7  ls
-    8  xxd -r data.txt hexdump_data
-    9  cat hexdump_data 
-   10  mv hexdump_data compressed_data.bz
-   11  bzip2 compressed_data.bz 
-   12  bzip2 -d compressed_data.bz 
-   13  mv hexdump_data compressed_data.bz2
-   14  mv compressed_data.bz compressed_data.bz2
-   15  bzip2 -d compressed_data.bz2 
-   16  ls
-   17  rm compressed_data.bz2 
-   18  cat data.txt 
-   19  mv data.txt hexdump_data
-   20  ls
-   21  cat hexdump_data 
-   22  xxd -r hexdump_data 
-   23  ls
-   24  cat hexdump_data 
+    8  mv data.txt hexdump_data
+    9  cat hexdump_data
    25  xxd -r hexdump_data compressed_data
-   26  ls
-   27  mv compressed_data compressed_data.bz2
-   28  bzip2 -d compressed_data.bz2 
    29  mv compressed_data compressed_data.gz
-   30  ls
-   31  mv compressed_data.bz2 compressed_data.gz
-   32  ls
-   33  gzip -d compressed_data.gz 
-   34  ls
+   33  gzip -d compressed_data.gz
    35  cat compressed_data 
    36  mv compressed_data compressed_data.bz2
    37  bzip2 -d compressed_data.bz2 
-   38  ls
-   39  cat compressed_data 
-   40  xxd compressed_data 
-   41  cat compressed_data 
    42  xxd compressed_data 
    43  mv compressed_data compressed_data.gz
-   44  ls
    45  gzip -d compressed_data.gz
-   46  ls
    47  cat compressed_data 
-   48  xxd compressed_data 
    49  xxd compressed_data | head
-   50  ls
    51  mv compressed_data compressed_data.tar
    52  tar -xf compressed_data.tar
-   53  ;ls
-   54  ls
-   55  cat data5.bin |head 
    56  cat data5.bin | head 
-   57  ls 
-   58  ls
-   59  ls -la
    60  tar -xf data5.bin
-   61  ls
    62  cat data6.bin | head
    63  xxd data6.bin 
-   64  bzip2 -d data6,bin
-   65  bzip2 -d data6.bin
-   66  ls
-   67  cat data6.bin.out 
-   68  xxd data6.bin.out 
-   69  xxd data6.bin.out  | head
-   70  xxd data6.bin.out
-   71  ls
-   72  cat data6.bin.out | head
+   64  bzip2 -d data6.bin
+   67  cat data6.bin.out
+   69  xxd data6.bin.out | head
    73  tar -xf data6.bin.out
-   74  ls
    75  xxd data8.bin 
    76  mv data8.bin data8.gz
-   77  gzip -d data8.gz 
-   78  ls
+   77  gzip -d data8.gz
    79  cat data8 
-   80  history
 
 
 Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
